@@ -1,0 +1,73 @@
+body{
+    background-color: white;
+
+}
+
+
+.back{
+    position: static;
+    width: 800px;
+    height: 800px;
+    border-radius: 600px;
+    background: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.pad_shape1{
+    position: relative;
+    background-color: red; 
+    height: 400px;
+    width: 400px;
+    border-radius:800px 0 0 0;
+    border-color: black;
+}
+
+.pad_shape2{
+    position: relative;
+    left: 50%;
+    bottom: 50%;
+    background-color: blue;
+    height: 400px;
+    width: 400px;
+    border-radius:0 800px 0 0;
+}
+
+.pad_shape3{
+    position: relative;
+    bottom: 50%;
+    background-color: yellow;
+    height: 400px;
+    width: 400px;
+    border-radius:0 0 0 800px;
+}
+
+.pad_shape4{
+    position: relative;
+    left: 50%;
+    bottom: 100%;
+    background-color: green;
+    height: 400px;
+    width: 400px;
+    border-radius:0 0 800px 0;
+}
+
+
+.circle{
+    position : relative; 
+    bottom : 175%; 
+    /*background-color:red;*/ 
+    text-align: center;
+    color : white; 
+    
+}
+
+.level{
+    width: 400px;
+    height: 400px;
+    border-radius: 600px;
+    background: black;
+    margin-left: auto;
+    margin-right: auto;
+}
