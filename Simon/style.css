@@ -5,48 +5,34 @@ body{
 
 
 .back{
-    /*
-    position: static;
-    width: 800px;
-    height: 800px;
-    border-radius: 600px;
-    background: black;
-    margin-left: auto;
-    margin-right: auto;
-    */
+    
     position:relative;
 	width:800px;
 	height:800px;
 	margin:0 auto;
     margin-top: 50px;
-    border: solid 1px black;
+   /* border: solid 10px black;*/
     border-radius: 50%;
     background-color: black;
-    
-/*
-    position:static;
-	width:440px;
-	height:440px;
-	margin:0 auto;
-    margin-top: 50px;
-    border: solid 1px black;
-    border-radius: 50%;
-    background-color: grey;
-    */
 }
 
-#pad{
+.pad{
     position: absolute;
     height: 400px;
     width: 400px;
-    pointer-events: none;
+    outline:20px solid black;
+    
 }
-
+/*
+#pad:active {
+    opacity: .5;
+  }
+*/
 .pad_shape1{
     left: 0;
     bottom: 50%;
     background-color: red;
-    border-radius:100% 0 0 0;
+    border-radius:100% 0 0 0 ;
 }
 
 .pad_shape2{
@@ -76,14 +62,13 @@ body{
     bottom : 175%; */
     /*background-color:red;*/
     position:absolute;
-    background-color:black;
+    background-color:gray;
     border: 5px solid black;
 	width:200px;
 	height:200px;
 	top: 300px;
 	left:37%;
 	border-radius:50%;
-    
 }
 
 .level{
