@@ -1,6 +1,12 @@
 var levelCount = 0; 
 var memory = [];
 var tempo;
+var memoryCount = 0;
+var userCase = [];
+var userCount = 0; 
+var runMemory;
+var color; 
+var matching = true;
 
 var red = $(".pad_shape1").attr("data-pad"); 
 var blue = $(".pad_shape2").attr("data-pad");
@@ -8,18 +14,51 @@ var yellow = $(".pad_shape3").attr("data-pad");
 var green = $(".pad_shape4").attr("data-pad");
 
 
+
 $(document).ready(function () {
     // Lancement du jeu 
     $('.circle').click(function () { 
         if (levelCount == 0) {
-            levelCount++;
-            $(".pad").css("pointer-events", "none");
+            userCount=0;
+            userCase = [];
+            memory = [];  
+            levelCount = 1; 
             $('.level').html(levelCount);
-            Aleatoire();
+            clearInterval(runMemory);
+            Aleatoire(); 
+            setTimeout(function() {runMemory = setInterval(playMemory, 1000);}, 1000);
         }
     });
 
+    $(".pad").click(function () {
+        if (levelCount != 0) {
+            userCase.push(this.id);
+            console.log(userCase); 
+            userCount++;
+            
+            for (i = 0; i < userCase.length; i++) {
+              if (memory[i] != userCase[i]) {
+                matching = false;
+              }
+            }
+        }
 
+        if (matching == false) {
+            $('.level').html("erreur");
+            $('.soundWrong').get(0).play();
+            userCase = [];
+            memoryCount = 0;
+            userCount = 0;
+            matchingArrays = true;
+            $(".pad").css("pointer-events", "none");
+        }
+    }); 
+
+
+    // Todo
+    // stocker la case cliquer par user
+    // gestion du temps de l'intervalle
+    // fonction perdu et gagner 
 
 
     //Gestion du click et du son
@@ -32,7 +71,18 @@ $(document).ready(function () {
     });
 });
 
-/*
+
+function win(){
+    if (levelCount == 1) {
+        $('.level').html('Win');
+    }
+}
+
+function lose(){
+    
+}
+
+
 function temps(){
 
     switch(levelCount) {
@@ -53,7 +103,20 @@ function temps(){
           break;
       }
 }
-*/
+
+
+function playMemory(){
+
+    $(".level").html(levelCount);
+    tempColor = memory[memoryCount];
+    $(".sound" + tempColor).get(0).play();
+    setTimeout(function() {$("#button" + tempColor).removeClass("activated");}, 250);
+    memoryCount++;
+    if (memoryCount == memory.length) {
+      clearInterval(runMemory);
+      $(".pad").css("pointer-events", "auto");
+    }
+}
 
 function Aleatoire(){
     var temp = Math.floor(Math.random()*4)+1;
